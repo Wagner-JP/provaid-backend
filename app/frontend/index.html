@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ProvaID — Verificação & Autenticidade Digital</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg"></div>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <img class="brand-logo" src="./assets/logo.png" alt="ProvaID" />
+        <span class="brand-name">Prova<span class="accent">ID</span></span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#verificar">Verificar</a>
+        <a class="btn btn-outline" href="#verificar">Começar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-left">
+        <div class="pill">🔐 Segurança • SHA-256 • Verificação</div>
+        <h1>Verificação e autenticidade digital para conteúdos.</h1>
+        <p class="muted">
+          Faça upload de um arquivo e valide sua autenticidade com hash (SHA-256).
+          Pensado para certificação, provas digitais, documentos e mídia.
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#verificar">Verificar agora</a>
+          <a class="btn btn-ghost" href="#como-funciona">Entender o fluxo</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-num">FastAPI</div>
+            <div class="stat-label">Backend modular</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">PostgreSQL</div>
+            <div class="stat-label">Persistência</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">SHA-256</div>
+            <div class="stat-label">Assinatura digital</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right" id="verificar">
+        <div class="card">
+          <div class="card-head">
+            <h2>Verificar arquivo</h2>
+            <span class="badge">API online</span>
+          </div>
+
+          <label class="filebox">
+            <input id="fileInput" type="file" />
+            <div class="filebox-ui">
+              <div class="filebox-title">Selecione um arquivo</div>
+              <div class="filebox-sub">PNG, JPG, PDF… (o backend decide)</div>
+            </div>
+            <div class="filebox-action">Escolher</div>
+          </label>
+
+          <div class="btn-row">
+  <button id="btnUpload" class="btn btn-primary btn-full">Registrar</button>
+  <button id="btnCheck" class="btn btn-ghost btn-full">Verificar hash</button>
+</div>
+
+<div class="hashbox">
+  <label class="muted" for="hashInput">Hash (SHA-256)</label>
+
+  <input 
+    id="hashInput" 
+    type="text" 
+    placeholder="Cole aqui o hash para verificar..." 
+  />
+
+  <button 
+    id="btnCopyHash" 
+    class="btn btn-ghost btn-full" 
+    type="button">
+    Copiar hash
+  </button>
+
+  <div 
+    id="resultBadge" 
+    class="badge" 
+    style="display:none; margin-top:10px;">
+  </div>
+</div>
+
+          <div class="result">
+            <div class="result-row">
+              <span class="muted">Status:</span>
+              <span id="statusText" class="status">Aguardando upload</span>
+            </div>
+
+            <pre id="jsonBox" class="json"></pre>
+          </div>
+
+          
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona" class="section">
+      <h3>Como funciona</h3>
+      <div class="steps">
+        <div class="step">
+          <div class="step-dot"></div>
+          <div>
+            <div class="step-title">Upload</div>
+            <div class="muted">Você envia um arquivo para o ProvaID.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-dot"></div>
+          <div>
+            <div class="step-title">Hash SHA-256</div>
+            <div class="muted">Geramos o hash e comparamos/verificamos.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-dot"></div>
+          <div>
+            <div class="step-title">Resposta</div>
+            <div class="muted">Mostramos o resultado e os detalhes em JSON.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer muted">
+      © <span id="year"></span> ProvaID — Verificação & Autenticidade Digital
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
