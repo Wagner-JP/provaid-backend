@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
 from fastapi import HTTPException
 
-from app.database.models import FileRecord
+from app.database.models.file import FileRecord
 from app.schemas.file import UploadResponse, Certificate, VerifyResponse, VerifyRecord, VerifyLink
 
 
